@@ -24,8 +24,9 @@ dist-ssr
 *.sw?
 
 # AI Agents & Tools
-.agents/
-.playwright-cli/
+.agents
+.playwright-cli
+.claude
 __pycache__/
 *.pyc
 
