@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from '../components/SocialIcons';
 import { useIntersection } from '../hooks/useIntersection';
+import { LOCATION_CONFIG } from '../constants/location';
 
 export default function Kontak() {
   const formSection = useIntersection(0.15);
@@ -79,9 +80,9 @@ export default function Kontak() {
               {
                 icon: MapPin,
                 title: 'Alamat Posko',
-                content: 'GLAYEM Village No.25-26, Sindang, Kab. Indramayu, Jawa Barat 45222',
-                link: 'https://maps.google.com/?q=Bank+Sampah+Rumah+Hijau+Indramayu',
-                linkText: 'Buka Petunjuk Arah',
+                content: LOCATION_CONFIG.fullAddress,
+                link: LOCATION_CONFIG.mapsDirectUrl,
+                linkText: 'Buka Titik Koordinat Maps',
               },
               {
                 icon: Phone,
@@ -242,25 +243,25 @@ export default function Kontak() {
                     <span>Peta Lokasi Google Maps</span>
                   </div>
                   <a
-                    href="https://maps.google.com/?q=Bank+Sampah+Rumah+Hijau+Indramayu"
+                    href={LOCATION_CONFIG.mapsDirectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-primary-700 hover:underline flex items-center gap-1"
+                    className="text-xs font-semibold text-primary-700 hover:text-primary-900 hover:underline flex items-center gap-1"
                   >
-                    Buka App Maps <ArrowRight className="w-3 h-3" />
+                    Buka Titik Koordinat <ArrowRight className="w-3 h-3" />
                   </a>
                 </div>
 
-                <div className="rounded-2xl overflow-hidden shadow-inner border border-surface-border">
+                <div className="rounded-2xl overflow-hidden shadow-inner border border-surface-border bg-white">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.886!2d108.3232!3d-6.3364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6eb9c57a70b0ed%3A0x74f0c0e0daa94b55!2sBank%20Sampah%20Rumah%20Hijau%20Indramayu!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                    src={LOCATION_CONFIG.mapsEmbedUrl}
                     width="100%"
                     height="280"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Peta Lokasi Bank Sampah Rumah Hijau Indramayu"
+                    title="Peta Titik Koordinat Bank Sampah Rumah Hijau Indramayu"
                     className="w-full"
                   />
                 </div>

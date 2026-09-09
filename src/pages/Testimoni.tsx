@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Star, MessageSquareQuote, CheckCircle2, ExternalLink, ThumbsUp, Award } from 'lucide-react';
 import { useIntersection } from '../hooks/useIntersection';
+import { LOCATION_CONFIG } from '../constants/location';
 
 interface Testimonial {
   name: string;
@@ -238,7 +239,7 @@ export default function Testimoni() {
             Ulasan dan saran dari Anda sangat berarti untuk memotivasi sesama warga dan meningkatkan mutu layanan bank sampah kami.
           </p>
           <a
-            href="https://g.page/r/CY9K9dqeDgBuEAI/review"
+            href={LOCATION_CONFIG.mapsReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary-700 hover:bg-primary-800 text-white font-bold text-base shadow-lg shadow-primary-700/25 hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer min-h-[48px]"

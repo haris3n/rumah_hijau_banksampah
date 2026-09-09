@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Compass, Target, CheckCircle2, Award, Calendar, MapPin, Users, HeartHandshake, ShieldCheck } from 'lucide-react';
 import { useIntersection } from '../hooks/useIntersection';
+import { LOCATION_CONFIG } from '../constants/location';
 import aboutActivityImg from '../assets/about-activity.jpg';
 
 export default function TentangKami() {
@@ -245,7 +246,7 @@ export default function TentangKami() {
       {/* Peta Lokasi */}
       <section className="section-padding bg-surface relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-100 text-primary-800 text-xs font-semibold uppercase tracking-wider mb-4">
               <MapPin className="w-3.5 h-3.5 text-primary-700" />
               Lokasi Titik Kumpul
@@ -253,21 +254,41 @@ export default function TentangKami() {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Kunjungi Bank Sampah Kami
             </h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              GLAYEM Village No.25-26, Sindang, Kec. Sindang, Kabupaten Indramayu, Jawa Barat 45222
+            <p className="text-text-secondary max-w-xl mx-auto mb-6">
+              {LOCATION_CONFIG.fullAddress}
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={LOCATION_CONFIG.mapsDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-700 hover:bg-primary-800 text-white text-xs font-semibold shadow-md shadow-primary-750/20 hover:shadow-lg transition-all duration-300 active:scale-98"
+              >
+                <MapPin className="w-3.5 h-3.5" />
+                <span>Buka Titik Koordinat di Google Maps</span>
+              </a>
+              <a
+                href={LOCATION_CONFIG.mapsDirectionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-primary-50 text-primary-800 text-xs font-semibold border border-primary-200 shadow-sm transition-all duration-300"
+              >
+                <Compass className="w-3.5 h-3.5 text-primary-600" />
+                <span>Petunjuk Rute Navigasi</span>
+              </a>
+            </div>
           </div>
 
-          <div className="rounded-3xl overflow-hidden shadow-xl border border-surface-border">
+          <div className="rounded-3xl overflow-hidden shadow-xl border border-surface-border bg-white">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.886!2d108.3232!3d-6.3364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6eb9c57a70b0ed%3A0x74f0c0e0daa94b55!2sBank%20Sampah%20Rumah%20Hijau%20Indramayu!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+              src={LOCATION_CONFIG.mapsEmbedUrl}
               width="100%"
               height="450"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Lokasi Bank Sampah Rumah Hijau Indramayu di Google Maps"
+              title="Peta Titik Koordinat Bank Sampah Rumah Hijau Indramayu"
               className="w-full"
             />
           </div>

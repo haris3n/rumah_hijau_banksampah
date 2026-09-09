@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Recycle, MapPin, Phone, Mail, Heart } from 'lucide-react';
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from './SocialIcons';
+import { LOCATION_CONFIG } from '../constants/location';
 
 const quickLinks = [
   { path: '/', label: 'Beranda' },
@@ -21,17 +22,20 @@ const contactItems = [
   {
     icon: MapPin,
     label: 'Alamat',
-    text: 'GLAYEM Village No.25-26, Sindang, Indramayu, Jawa Barat',
+    text: LOCATION_CONFIG.shortAddress,
+    href: LOCATION_CONFIG.mapsDirectUrl,
   },
   {
     icon: Phone,
     label: 'Telepon / WhatsApp',
     text: '+62 812-3456-7890',
+    href: 'https://wa.me/6281234567890',
   },
   {
     icon: Mail,
     label: 'Email',
     text: 'info@rumahhijau-indramayu.id',
+    href: 'mailto:info@rumahhijau-indramayu.id',
   },
 ];
 
@@ -130,14 +134,25 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-white mb-5 text-sm uppercase tracking-wider">Kontak</h4>
             <ul className="space-y-4">
-              {contactItems.map(({ icon: Icon, label, text }) => (
+              {contactItems.map(({ icon: Icon, label, text, href }) => (
                 <li key={label} className="flex items-start gap-3 group">
                   <div className="w-8 h-8 rounded-lg bg-primary-800/50 border border-primary-700/30 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary-700/50 transition-colors duration-200">
                     <Icon size={14} aria-hidden="true" className="text-primary-300" />
                   </div>
                   <div>
                     <span className="text-[10px] text-primary-500 uppercase tracking-wider font-medium block">{label}</span>
-                    <span className="text-primary-200/80 text-sm leading-snug">{text}</span>
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith('http') ? '_blank' : undefined}
+                        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-primary-200/80 hover:text-white text-sm leading-snug transition-colors hover:underline block"
+                      >
+                        {text}
+                      </a>
+                    ) : (
+                      <span className="text-primary-200/80 text-sm leading-snug">{text}</span>
+                    )}
                   </div>
                 </li>
               ))}
