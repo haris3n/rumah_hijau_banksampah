@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Recycle, MapPin, Phone, Mail, Heart } from 'lucide-react';
+import { MapPin, Phone, Mail, Heart } from 'lucide-react';
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from './SocialIcons';
 import { LOCATION_CONFIG } from '../constants/location';
+import logoImg from '../assets/logo.png';
 
 const quickLinks = [
   { path: '/', label: 'Beranda' },
@@ -61,8 +62,14 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3 mb-5 group cursor-pointer" aria-label="Beranda Bank Sampah Rumah Hijau">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform duration-300">
-                <Recycle size={24} aria-hidden="true" className="text-white" />
+              <div className="w-12 h-12 rounded-2xl bg-white p-1 flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden flex-shrink-0">
+                <img
+                  src={logoImg}
+                  alt="Logo Bank Sampah Rumah Hijau"
+                  className="w-full h-full object-contain"
+                  width="48"
+                  height="48"
+                />
               </div>
               <div>
                 <h3 className="font-heading font-bold text-lg text-white leading-tight">Rumah Hijau</h3>

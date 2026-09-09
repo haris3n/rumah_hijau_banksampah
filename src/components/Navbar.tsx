@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Recycle, Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 const navLinks = [
   { path: '/', label: 'Beranda' },
@@ -55,15 +56,13 @@ export default function Navbar() {
               className="flex items-center gap-3 group cursor-pointer"
               aria-label="Bank Sampah Rumah Hijau — Beranda"
             >
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
-                scrolled
-                  ? 'bg-gradient-to-br from-primary-600 to-secondary-600 shadow-md shadow-primary-500/30'
-                  : 'bg-white/15 backdrop-blur-sm border border-white/25'
-              }`}>
-                <Recycle
-                  size={20}
-                  aria-hidden="true"
-                  className={`transition-colors duration-300 ${scrolled ? 'text-white' : 'text-white'}`}
+              <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-md border border-white/40 transition-all duration-300 group-hover:scale-105 overflow-hidden flex-shrink-0">
+                <img
+                  src={logoImg}
+                  alt="Logo Bank Sampah Rumah Hijau"
+                  className="w-full h-full object-contain"
+                  width="40"
+                  height="40"
                 />
               </div>
               <div className="flex flex-col leading-tight">
@@ -163,8 +162,22 @@ export default function Navbar() {
         <div className={`absolute top-0 right-0 h-full w-72 bg-white shadow-2xl transition-transform duration-400 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
-          <div className="flex items-center justify-between px-6 py-5 border-b border-primary-100">
-            <span className="font-heading font-bold text-primary-900">Menu</span>
+          <div className="flex items-center justify-between px-5 py-4 border-b border-primary-100">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-lg bg-white p-0.5 border border-primary-100 shadow-xs flex items-center justify-center overflow-hidden flex-shrink-0">
+                <img
+                  src={logoImg}
+                  alt="Logo Bank Sampah Rumah Hijau"
+                  className="w-full h-full object-contain"
+                  width="36"
+                  height="36"
+                />
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className="font-heading font-bold text-primary-900 text-sm">Rumah Hijau</span>
+                <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold">Bank Sampah</span>
+              </div>
+            </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
