@@ -152,12 +152,12 @@ export default function Beranda() {
                 <span className="text-primary-600">Bank Sampah</span>{' '}
                 Rumah Hijau?
               </h2>
-              <p className="text-text-secondary text-lg leading-relaxed mb-5">
+              <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-4">
                 Bank Sampah Rumah Hijau Indramayu adalah inisiatif masyarakat yang bergerak di bidang
                 pengelolaan sampah berbasis komunitas. Kami membantu warga mengubah sampah menjadi barang
                 bernilai ekonomi sekaligus mengurangi penumpukan sampah di lingkungan.
               </p>
-              <p className="text-text-secondary leading-relaxed mb-8">
+              <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8">
                 Dengan sistem tabungan sampah, setiap warga dapat menyetor sampah yang telah dipilah
                 dan mendapatkan nilai tukar berupa saldo tabungan. Bersama-sama, kita jaga kebersihan
                 lingkungan dan tingkatkan kesejahteraan masyarakat Indramayu.
